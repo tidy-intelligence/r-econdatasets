@@ -1,0 +1,115 @@
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+# econdatasets
+
+<!-- badges: start -->
+
+<!-- [![CRAN status](https://www.r-pkg.org/badges/version/econdatasets)](https://cran.r-project.org/package=econdatasets)
+[![CRAN downloads](https://cranlogs.r-pkg.org/badges/econdatasets)](https://cran.r-project.org/package=econdatasets) -->
+
+![R CMD
+Check](https://github.com/tidy-intelligence/r-econdatasets/actions/workflows/R-CMD-check.yaml/badge.svg)
+![Lint](https://github.com/tidy-intelligence/r-econdatasets/actions/workflows/lint.yaml/badge.svg)
+[![Codecov test
+coverage](https://codecov.io/gh/tidy-intelligence/r-econdatasets/graph/badge.svg)](https://app.codecov.io/gh/tidy-intelligence/r-econdatasets)
+<!-- badges: end -->
+
+The ‘EconDataverse’ is a universe of open-source packages to work
+seamlessly with economic data. This package is designed to make it easy
+to download datasets that are preprocessed by ‘EconDataverse’ packages
+in a single step. Learn more about the ‘EconDataverse’ at
+[econdataverse.org](https://www.econdataverse.org).
+
+## Installation
+
+<!-- You can install `econdatasets` from [CRAN](https://CRAN.R-project.org/package=econdatasets) via:
+&#10;``` r
+install.packages("econdatasets")
+``` -->
+
+You can install the development version of `econdatasets` from
+[GitHub](https://github.com/tidy-intelligence/r-econdatasets) with:
+
+``` r
+# install.packages("pak")
+pak::pak("tidy-intelligence/r-econdatasets")
+```
+
+## Usage
+
+``` r
+library(econdatasets)
+```
+
+Use `ed_get()` to load a specific table from a dataset:
+
+``` r
+counterparts <- ed_get("wbids", "counterparts")
+#> → Reading dataset from
+#>   https://huggingface.co/datasets/econdataverse/wbids/resolve/main/counterparts.parquet
+#> ✔ Successfully loaded counterparts from wbids
+head(counterparts, 5)
+#>   counterpart_id counterpart_name counterpart_iso2code counterpart_iso3code
+#> 1            001          Austria                   AT                  AUT
+#> 2            002          Belgium                   BE                  BEL
+#> 3            003          Denmark                   DK                  DNK
+#> 4            004           France                   FR                  FRA
+#> 5            005          Germany                   DE                  DEU
+#>   counterpart_type
+#> 1          Country
+#> 2          Country
+#> 3          Country
+#> 4          Country
+#> 5          Country
+```
+
+Use `ed_get_tables()` to see all tables available in a specific dataset:
+
+``` r
+ed_get_tables("imfweo")
+#> → Fetching file tree from
+#>   https://huggingface.co/api/datasets/econdataverse/imfweo/tree/main?recursive=1
+#> ✔ Found 3 Parquet table(s).
+#>              table                 filename                     path     size
+#> 1 economic_outlook economic_outlook.parquet economic_outlook.parquet 48413034
+#> 2         entities         entities.parquet         entities.parquet     7290
+#> 3           series           series.parquet           series.parquet    11779
+#>                                                                                          url
+#> 1 https://huggingface.co/datasets/econdataverse/imfweo/resolve/main/economic_outlook.parquet
+#> 2         https://huggingface.co/datasets/econdataverse/imfweo/resolve/main/entities.parquet
+#> 3           https://huggingface.co/datasets/econdataverse/imfweo/resolve/main/series.parquet
+```
+
+Use `ed_get_datasets()` to view all datasets published in the
+EconDataverse:
+
+``` r
+ed_get_datasets()
+#> → Fetching dataset list from
+#>   https://huggingface.co/api/datasets?author=econdataverse
+#> ✔ Found 2 datasets.
+#>                dataset total_downloads            last_modified is_private
+#> 1  econdataverse/wbids              19 2025-10-28T14:57:47.000Z      FALSE
+#> 2 econdataverse/imfweo               0 2025-11-10T06:05:06.000Z      FALSE
+#>   is_gated
+#> 1    FALSE
+#> 2    FALSE
+```
+
+## Contributing
+
+Contributions to `econdatasets` are welcome! If you’d like to
+contribute, please follow these steps:
+
+1.  **Create an issue**: Before making changes, create an issue
+    describing the bug or feature you’re addressing.
+2.  **Fork the repository**: After receiving supportive feedback from
+    the package authors, fork the repository to your GitHub account.
+3.  **Create a branch**: Create a branch for your changes with a
+    descriptive name.
+4.  **Make your changes**: Implement your bug fix or feature.
+5.  **Test your changes**: Run tests to ensure your changes don’t break
+    existing functionality.
+6.  **Submit a pull request**: Push your changes to your fork and submit
+    a pull request to the main repository.

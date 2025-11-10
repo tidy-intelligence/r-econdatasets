@@ -1,0 +1,7 @@
+j,year,release,error_message
+2,2025,Fall,"[1m[22mMissing required columns in WEO data:
+Country
+ISO
+Subject Descriptor
+Units
+WEO Subject Code"
