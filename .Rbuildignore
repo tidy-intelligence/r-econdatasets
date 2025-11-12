@@ -5,3 +5,7 @@
 ^cran-comments\.md$
 data
 data-raw
+^\.github$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
