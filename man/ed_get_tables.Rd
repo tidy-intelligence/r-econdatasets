@@ -31,5 +31,4 @@ including file sizes.
 \dontrun{
 ed_get_tables("wbids")
 }
-
 }

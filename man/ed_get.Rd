@@ -4,13 +4,15 @@
 \alias{ed_get}
 \title{Get a dataset from EconDataverse Hugging Face repositories}
 \usage{
-ed_get(dataset, table, quiet = FALSE)
+ed_get(dataset, table, columns = NULL, quiet = FALSE)
 }
 \arguments{
 \item{dataset}{Character string naming the dataset repository
 on Hugging Face (e.g., \code{"wbids"} for World Bank Indicators).}
 
 \item{table}{Character string naming the table.}
+
+\item{columns}{Character vector naming the columns. Defaults to \code{NULL}.}
 
 \item{quiet}{Logical; suppress messages? Default: FALSE.}
 }
@@ -25,6 +27,10 @@ Hugging Face datasets using the \code{arrow} package.
 \dontrun{
 df <- ed_get("wbids", "counterparts")
 head(df)
-}
 
+df <- ed_get(
+  "wbids",
+  "counterparts",
+  columns = c("counterpart_id", "counterpart_name"))
+}
 }

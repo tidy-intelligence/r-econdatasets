@@ -60,7 +60,7 @@ ed_get_tables("imfweo")
 ```
 
 Use `ed_get_datasets()` to view all datasets published in the EconDataverse:
-d
+
 ```{r}
 ed_get_datasets()
 ```

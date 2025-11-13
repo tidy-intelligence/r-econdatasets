@@ -1,20 +1,12 @@
 library(testthat)
 
-# ============================================================================
-# Tests for ed_get()
-# ============================================================================
-
 test_that("ed_get works with valid dataset and table", {
-  skip_if_not_installed("arrow")
-
-  # Create test data
   test_df <- data.frame(
     counterpart_id = 1:3,
     counterpart_name = c("A", "B", "C"),
     value = c(10, 20, 30)
   )
 
-  # Mock arrow::read_parquet to return our test data
   local_mocked_bindings(
     read_parquet = function(file_url, col_select = NULL) {
       if (!is.null(col_select)) {
@@ -33,8 +25,6 @@ test_that("ed_get works with valid dataset and table", {
 })
 
 test_that("ed_get works with column selection", {
-  skip_if_not_installed("arrow")
-
   test_df <- data.frame(
     counterpart_id = 1:3,
     counterpart_name = c("A", "B", "C"),
@@ -64,8 +54,6 @@ test_that("ed_get works with column selection", {
 })
 
 test_that("ed_get shows messages when quiet = FALSE", {
-  skip_if_not_installed("arrow")
-
   test_df <- data.frame(x = 1:3)
 
   local_mocked_bindings(
@@ -87,8 +75,6 @@ test_that("ed_get shows messages when quiet = FALSE", {
 })
 
 test_that("ed_get handles errors gracefully", {
-  skip_if_not_installed("arrow")
-
   local_mocked_bindings(
     read_parquet = function(file_url, col_select = NULL) {
       stop("Connection failed")
@@ -103,8 +89,6 @@ test_that("ed_get handles errors gracefully", {
 })
 
 test_that("ed_get constructs correct URL", {
-  skip_if_not_installed("arrow")
-
   captured_url <- NULL
 
   local_mocked_bindings(

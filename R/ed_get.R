@@ -6,9 +6,12 @@
 #' @param dataset Character string naming the dataset repository
 #'   on Hugging Face (e.g., `"wbids"` for World Bank Indicators).
 #' @param table Character string naming the table.
+#' @param columns Character vector naming the columns. Defaults to `NULL`.
 #' @param quiet Logical; suppress messages? Default: FALSE.
 #'
 #' @return A `data.frame` containing the requested dataset.
+#'
+#' @export
 #'
 #' @examples
 #' \dontrun{
@@ -20,8 +23,6 @@
 #'   "counterparts",
 #'   columns = c("counterpart_id", "counterpart_name"))
 #' }
-#'
-#' @export
 ed_get <- function(dataset, table, columns = NULL, quiet = FALSE) {
   base_url <- "https://huggingface.co/datasets/econdataverse"
   file_url <- paste(
@@ -82,12 +83,12 @@ ed_get <- function(dataset, table, columns = NULL, quiet = FALSE) {
 #'   \item{is_gated}{Logical; whether access is gated}
 #' }
 #'
+#' @export
+#'
 #' @examples
 #' \dontrun{
 #' ed_get_datasets()
 #' }
-#'
-#' @export
 ed_get_datasets <- function(quiet = FALSE) {
   url <- "https://huggingface.co/api/datasets?author=econdataverse"
 
@@ -142,12 +143,12 @@ ed_get_datasets <- function(quiet = FALSE) {
 #'   \item{url}{Direct `resolve/main` URL to the Parquet file}
 #' }
 #'
+#' @export
+#'
 #' @examples
 #' \dontrun{
 #' ed_get_tables("wbids")
 #' }
-#'
-#' @export
 ed_get_tables <- function(dataset, quiet = FALSE) {
   api_url <- paste(
     "https://huggingface.co/api/datasets/econdataverse",
