@@ -2,11 +2,17 @@
 
 The ‘EconDataverse’ is a universe of open-source packages to work
 seamlessly with economic data. This package is designed to make it easy
-to download datasets that are preprocessed by ‘EconDataverse’ packages
-in a single step. Learn more about the ‘EconDataverse’ at
-[econdataverse.org](https://www.econdataverse.org).
+to download selected datasets that are preprocessed by ‘EconDataverse’
+packages and hosted on ‘HuggingFace’. Learn more about the
+‘EconDataverse’ at [econdataverse.org](https://www.econdataverse.org).
 
 ## Installation
+
+You can install `econdatasets` from CRAN via:
+
+``` r
+install.packages("econdatasets")
+```
 
 You can install the development version of `econdatasets` from
 [GitHub](https://github.com/tidy-intelligence/r-econdatasets) with:
@@ -67,7 +73,7 @@ ed_get_tables("imfweo")
 
 Use
 [`ed_get_datasets()`](https://tidy-intelligence.github.io/r-econdatasets/reference/ed_get_datasets.md)
-to view all datasets published in the EconDataverse:
+to view all published datasets:
 
 ``` r
 ed_get_datasets()
@@ -81,6 +87,9 @@ ed_get_datasets()
 #> 1    FALSE
 #> 2    FALSE
 ```
+
+If you miss a specific datasets, please consider opening an issue with
+your request.
 
 ## Contributing
 

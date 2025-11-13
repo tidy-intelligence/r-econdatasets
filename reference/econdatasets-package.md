@@ -3,14 +3,19 @@
 The 'EconDataverse' is a universe of open-source packages to work
 seamlessly with economic data. This package is designed to make it easy
 to download selected datasets that are preprocessed by 'EconDataverse'
-packages in a single step. Learn more about the 'EconDataverse' at
-<https://www.econdataverse.org>.
+packages and publicly hosted on 'Hugging Face'. Learn more about the
+'EconDataverse' at <https://www.econdataverse.org>.
 
 ## See also
 
 Useful links:
 
 - <https://tidy-intelligence.github.io/r-econdatasets/>
+
+- <https://github.com/tidy-intelligence/r-econdatasets>
+
+- Report bugs at
+  <https://github.com/tidy-intelligence/r-econdatasets/issues>
 
 ## Author
 
