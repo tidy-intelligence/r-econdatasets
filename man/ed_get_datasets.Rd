@@ -19,6 +19,7 @@ A data frame with columns:
 \item{is_private}{Logical; whether the dataset is private}
 \item{is_gated}{Logical; whether access is gated}
 }
+Returns \code{NULL} if the request fails.
 }
 \description{
 Retrieves a list of all datasets published under the

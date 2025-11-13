@@ -17,7 +17,8 @@ on Hugging Face (e.g., \code{"wbids"} for World Bank Indicators).}
 \item{quiet}{Logical; suppress messages? Default: FALSE.}
 }
 \value{
-A \code{data.frame} containing the requested dataset.
+A \code{data.frame} containing the requested dataset, or \code{NULL} if
+the download fails.
 }
 \description{
 Downloads and reads a Parquet file directly from the EconDataverse

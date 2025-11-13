@@ -9,7 +9,8 @@
 #' @param columns Character vector naming the columns. Defaults to `NULL`.
 #' @param quiet Logical; suppress messages? Default: FALSE.
 #'
-#' @return A `data.frame` containing the requested dataset.
+#' @return A `data.frame` containing the requested dataset, or `NULL` if
+#'   the download fails.
 #'
 #' @examples
 #' \dontrun{
@@ -56,11 +57,12 @@ ed_get <- function(dataset, table, columns = NULL, quiet = FALSE) {
       as.data.frame(df)
     },
     error = function(e) {
-      cli::cli_abort(c(
-        "Failed to read dataset.",
-        "x" = paste("URL:", file_url),
-        "!" = e$message
+      cli::cli_alert_danger(paste(
+        "Failed to read dataset from",
+        file_url
       ))
+      cli::cli_alert_info(paste("Error:", e$message))
+      return(NULL)
     }
   )
 }
@@ -83,6 +85,7 @@ ed_get <- function(dataset, table, columns = NULL, quiet = FALSE) {
 #'   \item{size}{File size}
 #'   \item{url}{Direct `resolve/main` URL to the Parquet file}
 #' }
+#' Returns `NULL` if the request fails.
 #'
 #' @examples
 #' \dontrun{
@@ -105,23 +108,43 @@ ed_get_tables <- function(dataset, quiet = FALSE) {
   resp <- tryCatch(
     httr2::request(api_url) |> httr2::req_perform(),
     error = function(e) {
-      cli::cli_abort(paste("Failed to retrieve file tree:", e$message))
+      cli::cli_alert_danger(
+        "Failed to retrieve file tree from Hugging Face API"
+      )
+      cli::cli_alert_info(paste("Error:", e$message))
+      return(NULL)
     }
   )
 
-  items <- jsonlite::fromJSON(
-    httr2::resp_body_string(resp),
-    simplifyDataFrame = TRUE
+  if (is.null(resp)) {
+    return(NULL)
+  }
+
+  items <- tryCatch(
+    jsonlite::fromJSON(
+      httr2::resp_body_string(resp),
+      simplifyDataFrame = TRUE
+    ),
+    error = function(e) {
+      cli::cli_alert_danger("Failed to parse API response")
+      cli::cli_alert_info(paste("Error:", e$message))
+      return(NULL)
+    }
   )
+
+  if (is.null(items)) {
+    return(NULL)
+  }
 
   tree <- if (is.data.frame(items)) {
     items
   } else if (is.list(items) && is.data.frame(items$tree)) {
     items$tree
   } else {
-    cli::cli_abort(
+    cli::cli_alert_danger(
       "Unexpected API response structure; could not find file list."
     )
+    return(NULL)
   }
 
   parquet <- tree[
@@ -189,6 +212,7 @@ ed_get_tables <- function(dataset, quiet = FALSE) {
 #'   \item{is_private}{Logical; whether the dataset is private}
 #'   \item{is_gated}{Logical; whether access is gated}
 #' }
+#' Returns `NULL` if the request fails.
 #'
 #' @examples
 #' \dontrun{
@@ -207,12 +231,43 @@ ed_get_datasets <- function(quiet = FALSE) {
     httr2::request(url) |>
       httr2::req_perform(),
     error = function(e) {
-      cli::cli_abort(paste("Failed to retrieve dataset list:", e$message))
+      cli::cli_alert_danger(
+        "Failed to retrieve dataset list from Hugging Face API"
+      )
+      cli::cli_alert_info(paste("Error:", e$message))
+      return(NULL)
     }
   )
 
-  data <- httr2::resp_body_string(resp)
-  parsed <- jsonlite::fromJSON(data)
+  if (is.null(resp)) {
+    return(NULL)
+  }
+
+  data <- tryCatch(
+    httr2::resp_body_string(resp),
+    error = function(e) {
+      cli::cli_alert_danger("Failed to read response body")
+      cli::cli_alert_info(paste("Error:", e$message))
+      return(NULL)
+    }
+  )
+
+  if (is.null(data)) {
+    return(NULL)
+  }
+
+  parsed <- tryCatch(
+    jsonlite::fromJSON(data),
+    error = function(e) {
+      cli::cli_alert_danger("Failed to parse JSON response")
+      cli::cli_alert_info(paste("Error:", e$message))
+      return(NULL)
+    }
+  )
+
+  if (is.null(parsed)) {
+    return(NULL)
+  }
 
   # Use 'id' instead of '_id' to get the proper dataset name
   df <- data.frame(

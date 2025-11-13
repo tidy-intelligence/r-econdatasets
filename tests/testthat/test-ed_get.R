@@ -82,7 +82,7 @@ test_that("ed_get handles errors gracefully", {
     .package = "arrow"
   )
 
-  expect_error(
+  expect_message(
     ed_get("wbids", "counterparts", quiet = TRUE),
     "Failed to read dataset"
   )
@@ -210,7 +210,7 @@ test_that("ed_get_datasets handles HTTP errors", {
     .package = "httr2"
   )
 
-  expect_error(
+  expect_message(
     ed_get_datasets(quiet = TRUE),
     "Failed to retrieve dataset list"
   )
@@ -379,7 +379,7 @@ test_that("ed_get_tables handles HTTP errors", {
     .package = "httr2"
   )
 
-  expect_error(
+  expect_message(
     ed_get_tables("wbids", quiet = TRUE),
     "Failed to retrieve file tree"
   )
@@ -408,7 +408,7 @@ test_that("ed_get_tables handles unexpected API response structure", {
     .package = "httr2"
   )
 
-  expect_error(
+  expect_message(
     ed_get_tables("wbids", quiet = TRUE),
     "Unexpected API response structure"
   )

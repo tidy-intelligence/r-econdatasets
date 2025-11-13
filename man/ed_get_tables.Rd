@@ -20,6 +20,7 @@ A data.frame with:
 \item{size}{File size}
 \item{url}{Direct \code{resolve/main} URL to the Parquet file}
 }
+Returns \code{NULL} if the request fails.
 }
 \description{
 Queries the Hugging Face Hub and returns all \code{.parquet} files

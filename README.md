@@ -18,7 +18,7 @@ coverage](https://codecov.io/gh/tidy-intelligence/r-econdatasets/graph/badge.svg
 The ‘EconDataverse’ is a universe of open-source packages to work
 seamlessly with economic data. This package is designed to make it easy
 to download selected datasets that are preprocessed by ‘EconDataverse’
-packages and hosted on ‘HuggingFace’. Learn more about the
+packages and publicly hosted on ‘Hugging Face’. Learn more about the
 ‘EconDataverse’ at [econdataverse.org](https://www.econdataverse.org).
 
 ## Installation
