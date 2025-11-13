@@ -6,12 +6,14 @@
 \alias{econdatasets-package}
 \title{econdatasets: Easily Download 'EconDataverse' Datasets}
 \description{
-The 'EconDataverse' is a universe of open-source packages to work seamlessly with economic data. This package is designed to make it easy to download selected datasets that are preprocessed by 'EconDataverse' packages in a single step. Learn more about the 'EconDataverse' at \url{https://www.econdataverse.org}.
+The 'EconDataverse' is a universe of open-source packages to work seamlessly with economic data. This package is designed to make it easy to download selected datasets that are preprocessed by 'EconDataverse' packages and publicly hosted on 'Hugging Face'. Learn more about the 'EconDataverse' at \url{https://www.econdataverse.org}.
 }
 \seealso{
 Useful links:
 \itemize{
   \item \url{https://tidy-intelligence.github.io/r-econdatasets/}
+  \item \url{https://github.com/tidy-intelligence/r-econdatasets}
+  \item Report bugs at \url{https://github.com/tidy-intelligence/r-econdatasets/issues}
 }
 
 }
