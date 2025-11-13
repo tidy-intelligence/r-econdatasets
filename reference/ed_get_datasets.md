@@ -41,6 +41,8 @@ A data frame with columns:
 
   Logical; whether access is gated
 
+Returns `NULL` if the request fails.
+
 ## Examples
 
 ``` r

@@ -30,7 +30,8 @@ ed_get(dataset, table, columns = NULL, quiet = FALSE)
 
 ## Value
 
-A `data.frame` containing the requested dataset.
+A `data.frame` containing the requested dataset, or `NULL` if the
+download fails.
 
 ## Examples
 

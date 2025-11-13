@@ -45,6 +45,8 @@ A data.frame with:
 
   Direct `resolve/main` URL to the Parquet file
 
+Returns `NULL` if the request fails.
+
 ## Examples
 
 ``` r
