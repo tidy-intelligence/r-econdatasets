@@ -14,10 +14,15 @@
 #' \dontrun{
 #' df <- ed_get("wbids", "counterparts")
 #' head(df)
+#'
+#' df <- ed_get(
+#'   "wbids",
+#'   "counterparts",
+#'   columns = c("counterpart_id", "counterpart_name"))
 #' }
 #'
 #' @export
-ed_get <- function(dataset, table, quiet = FALSE) {
+ed_get <- function(dataset, table, columns = NULL, quiet = FALSE) {
   base_url <- "https://huggingface.co/datasets/econdataverse"
   file_url <- paste(
     base_url,
@@ -33,7 +38,12 @@ ed_get <- function(dataset, table, quiet = FALSE) {
 
   tryCatch(
     {
-      df <- arrow::read_parquet(file_url)
+      if (!is.null(columns)) {
+        df <- arrow::read_parquet(file_url, col_select = columns)
+      } else {
+        df <- arrow::read_parquet(file_url)
+      }
+
       if (!quiet) {
         cli::cli_alert_success(paste(
           "Successfully loaded",
