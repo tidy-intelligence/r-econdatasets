@@ -3,3 +3,7 @@
 export(ed_get)
 export(ed_get_datasets)
 export(ed_get_tables)
+import(arrow)
+import(cli)
+import(httr2)
+import(jsonlite)

@@ -3,8 +3,8 @@
 ^LICENSE\.md$
 ^README\.Rmd$
 ^cran-comments\.md$
-data
-data-raw
+^data$
+^data-raw$
 ^\.github$
 ^_pkgdown\.yml$
 ^docs$

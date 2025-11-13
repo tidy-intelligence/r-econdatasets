@@ -33,4 +33,5 @@ df <- ed_get(
   "counterparts",
   columns = c("counterpart_id", "counterpart_name"))
 }
+
 }
