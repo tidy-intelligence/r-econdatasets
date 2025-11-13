@@ -103,7 +103,10 @@ test_that("ed_get constructs correct URL", {
 
   expect_equal(
     captured_url,
-    "https://huggingface.co/datasets/econdataverse/wbids/resolve/main/counterparts.parquet"
+    paste0(
+      "https://huggingface.co/datasets/econdataverse/wbids/",
+      "resolve/main/counterparts.parquet"
+    )
   )
 })
 
