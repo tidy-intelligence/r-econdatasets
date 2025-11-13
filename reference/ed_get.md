@@ -6,7 +6,7 @@ Hugging Face datasets using the `arrow` package.
 ## Usage
 
 ``` r
-ed_get(dataset, table, quiet = FALSE)
+ed_get(dataset, table, columns = NULL, quiet = FALSE)
 ```
 
 ## Arguments
@@ -19,6 +19,10 @@ ed_get(dataset, table, quiet = FALSE)
 - table:
 
   Character string naming the table.
+
+- columns:
+
+  Character vector naming the columns. Defaults to `NULL`.
 
 - quiet:
 
@@ -34,5 +38,10 @@ A `data.frame` containing the requested dataset.
 if (FALSE) { # \dontrun{
 df <- ed_get("wbids", "counterparts")
 head(df)
+
+df <- ed_get(
+  "wbids",
+  "counterparts",
+  columns = c("counterpart_id", "counterpart_name"))
 } # }
 ```
