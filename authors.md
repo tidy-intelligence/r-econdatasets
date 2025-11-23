@@ -8,7 +8,7 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/tidy-intelligence/r-econdatasets/blob/main/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/tidy-intelligence/r-econdatasets/blob/v0.1.0/DESCRIPTION)
 
 Scheuch C (2025). *econdatasets: Easily Download 'EconDataverse'
 Datasets*. R package version 0.1.0,
