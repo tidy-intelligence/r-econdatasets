@@ -27,7 +27,7 @@ Retrieves a list of all datasets published under the
 on Hugging Face.
 }
 \examples{
-\dontrun{
+\donttest{
 ed_get_datasets()
 }
 

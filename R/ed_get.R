@@ -13,7 +13,7 @@
 #'   the download fails.
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' df <- ed_get("wbids", "counterparts")
 #' head(df)
 #'
@@ -62,7 +62,7 @@ ed_get <- function(dataset, table, columns = NULL, quiet = FALSE) {
         file_url
       ))
       cli::cli_alert_info(paste("Error:", e$message))
-      return(NULL)
+      NULL
     }
   )
 }
@@ -88,7 +88,7 @@ ed_get <- function(dataset, table, columns = NULL, quiet = FALSE) {
 #' Returns `NULL` if the request fails.
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' ed_get_tables("wbids")
 #' }
 #'
@@ -112,7 +112,7 @@ ed_get_tables <- function(dataset, quiet = FALSE) {
         "Failed to retrieve file tree from Hugging Face API"
       )
       cli::cli_alert_info(paste("Error:", e$message))
-      return(NULL)
+      NULL
     }
   )
 
@@ -128,7 +128,7 @@ ed_get_tables <- function(dataset, quiet = FALSE) {
     error = function(e) {
       cli::cli_alert_danger("Failed to parse API response")
       cli::cli_alert_info(paste("Error:", e$message))
-      return(NULL)
+      NULL
     }
   )
 
@@ -215,7 +215,7 @@ ed_get_tables <- function(dataset, quiet = FALSE) {
 #' Returns `NULL` if the request fails.
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' ed_get_datasets()
 #' }
 #'
@@ -235,7 +235,7 @@ ed_get_datasets <- function(quiet = FALSE) {
         "Failed to retrieve dataset list from Hugging Face API"
       )
       cli::cli_alert_info(paste("Error:", e$message))
-      return(NULL)
+      NULL
     }
   )
 
@@ -248,7 +248,7 @@ ed_get_datasets <- function(quiet = FALSE) {
     error = function(e) {
       cli::cli_alert_danger("Failed to read response body")
       cli::cli_alert_info(paste("Error:", e$message))
-      return(NULL)
+      NULL
     }
   )
 
@@ -261,7 +261,7 @@ ed_get_datasets <- function(quiet = FALSE) {
     error = function(e) {
       cli::cli_alert_danger("Failed to parse JSON response")
       cli::cli_alert_info(paste("Error:", e$message))
-      return(NULL)
+      NULL
     }
   )
 

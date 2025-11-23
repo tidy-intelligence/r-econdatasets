@@ -25,7 +25,7 @@ Downloads and reads a Parquet file directly from the EconDataverse
 Hugging Face datasets using the \code{arrow} package.
 }
 \examples{
-\dontrun{
+\donttest{
 df <- ed_get("wbids", "counterparts")
 head(df)
 

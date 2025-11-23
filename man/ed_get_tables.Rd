@@ -29,7 +29,7 @@ under a given dataset repository in the
 including file sizes.
 }
 \examples{
-\dontrun{
+\donttest{
 ed_get_tables("wbids")
 }
 
