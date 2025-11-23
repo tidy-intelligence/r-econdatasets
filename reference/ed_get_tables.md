@@ -50,7 +50,22 @@ Returns `NULL` if the request fails.
 ## Examples
 
 ``` r
-if (FALSE) { # \dontrun{
+# \donttest{
 ed_get_tables("wbids")
-} # }
+#> → Fetching file tree from
+#>   https://huggingface.co/api/datasets/econdataverse/wbids/tree/main?recursive=1
+#> ✔ Found 5 Parquet table(s).
+#>             table                filename                    path      size
+#> 1    counterparts    counterparts.parquet    counterparts.parquet     10435
+#> 2 debt_statistics debt_statistics.parquet debt_statistics.parquet 106495139
+#> 3        entities        entities.parquet        entities.parquet     11293
+#> 4          series          series.parquet          series.parquet     55854
+#> 5   series_topics   series_topics.parquet   series_topics.parquet      4746
+#>                                                                                        url
+#> 1    https://huggingface.co/datasets/econdataverse/wbids/resolve/main/counterparts.parquet
+#> 2 https://huggingface.co/datasets/econdataverse/wbids/resolve/main/debt_statistics.parquet
+#> 3        https://huggingface.co/datasets/econdataverse/wbids/resolve/main/entities.parquet
+#> 4          https://huggingface.co/datasets/econdataverse/wbids/resolve/main/series.parquet
+#> 5   https://huggingface.co/datasets/econdataverse/wbids/resolve/main/series_topics.parquet
+# }
 ```

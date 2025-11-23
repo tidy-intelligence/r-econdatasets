@@ -11,7 +11,7 @@ on Hugging Face."></head><body>
 
     <a class="navbar-brand me-2" href="../index.html">econdatasets</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,7 +33,7 @@ on Hugging Face."></head><body>
   <main id="main" class="col-md-9"><div class="page-header">
 
       <h1>List available datasets in the EconDataverse organization</h1>
-      <small class="dont-index">Source: <a href="https://github.com/tidy-intelligence/r-econdatasets/blob/v0.1.0/R/ed_get.R" class="external-link"><code>R/ed_get.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/tidy-intelligence/r-econdatasets/blob/main/R/ed_get.R" class="external-link"><code>R/ed_get.R</code></a></small>
       <div class="d-none name"><code>ed_get_datasets.Rd</code></div>
     </div>
 
@@ -80,9 +80,18 @@ Defaults to FALSE.</p></dd>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="fu">ed_get_datasets</span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> → Fetching dataset list from</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   https://huggingface.co/api/datasets?author=econdataverse</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Found 2 datasets.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                dataset total_downloads            last_modified is_private</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  econdataverse/wbids              48 2025-10-28T14:57:47.000Z      FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 econdataverse/imfweo              21 2025-11-10T06:05:06.000Z      FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   is_gated</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1    FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2    FALSE</span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

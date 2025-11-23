@@ -9,7 +9,7 @@ Hugging Face datasets using the arrow package."></head><body>
 
     <a class="navbar-brand me-2" href="../index.html">econdatasets</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,7 +31,7 @@ Hugging Face datasets using the arrow package."></head><body>
   <main id="main" class="col-md-9"><div class="page-header">
 
       <h1>Get a dataset from EconDataverse Hugging Face repositories</h1>
-      <small class="dont-index">Source: <a href="https://github.com/tidy-intelligence/r-econdatasets/blob/v0.1.0/R/ed_get.R" class="external-link"><code>R/ed_get.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/tidy-intelligence/r-econdatasets/blob/main/R/ed_get.R" class="external-link"><code>R/ed_get.R</code></a></small>
       <div class="d-none name"><code>ed_get.Rd</code></div>
     </div>
 
@@ -74,15 +74,35 @@ the download fails.</p>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu">ed_get</span><span class="op">(</span><span class="st">"wbids"</span>, <span class="st">"counterparts"</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> → Reading dataset from</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   https://huggingface.co/datasets/econdataverse/wbids/resolve/main/counterparts.parquet</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Successfully loaded counterparts from wbids</span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   counterpart_id counterpart_name counterpart_iso2code counterpart_iso3code</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1            001          Austria                   AT                  AUT</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2            002          Belgium                   BE                  BEL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3            003          Denmark                   DK                  DNK</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4            004           France                   FR                  FRA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5            005          Germany                   DE                  DEU</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6            006            Italy                   IT                  ITA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   counterpart_type</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1          Country</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2          Country</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3          Country</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4          Country</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5          Country</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6          Country</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu">ed_get</span><span class="op">(</span></span></span>
 <span class="r-in"><span>  <span class="st">"wbids"</span>,</span></span>
 <span class="r-in"><span>  <span class="st">"counterparts"</span>,</span></span>
 <span class="r-in"><span>  columns <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"counterpart_id"</span>, <span class="st">"counterpart_name"</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> → Reading dataset from</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   https://huggingface.co/datasets/econdataverse/wbids/resolve/main/counterparts.parquet</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Successfully loaded counterparts from wbids</span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

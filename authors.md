@@ -8,16 +8,16 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/tidy-intelligence/r-econdatasets/blob/v0.1.0/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/tidy-intelligence/r-econdatasets/blob/main/DESCRIPTION)
 
 Scheuch C (2025). *econdatasets: Easily Download 'EconDataverse'
-Datasets*. R package version 0.1.0,
+Datasets*. R package version 0.1.0.9000,
 <https://tidy-intelligence.github.io/r-econdatasets/>.
 
     @Manual{,
       title = {econdatasets: Easily Download 'EconDataverse' Datasets},
       author = {Christoph Scheuch},
       year = {2025},
-      note = {R package version 0.1.0},
+      note = {R package version 0.1.0.9000},
       url = {https://tidy-intelligence.github.io/r-econdatasets/},
     }

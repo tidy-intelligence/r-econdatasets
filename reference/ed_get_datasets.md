@@ -46,7 +46,16 @@ Returns `NULL` if the request fails.
 ## Examples
 
 ``` r
-if (FALSE) { # \dontrun{
+# \donttest{
 ed_get_datasets()
-} # }
+#> → Fetching dataset list from
+#>   https://huggingface.co/api/datasets?author=econdataverse
+#> ✔ Found 2 datasets.
+#>                dataset total_downloads            last_modified is_private
+#> 1  econdataverse/wbids              48 2025-10-28T14:57:47.000Z      FALSE
+#> 2 econdataverse/imfweo              21 2025-11-10T06:05:06.000Z      FALSE
+#>   is_gated
+#> 1    FALSE
+#> 2    FALSE
+# }
 ```
