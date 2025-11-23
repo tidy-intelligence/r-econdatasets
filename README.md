@@ -5,9 +5,10 @@
 
 <!-- badges: start -->
 
-<!-- [![CRAN status](https://www.r-pkg.org/badges/version/econdatasets)](https://cran.r-project.org/package=econdatasets)
-[![CRAN downloads](https://cranlogs.r-pkg.org/badges/econdatasets)](https://cran.r-project.org/package=econdatasets) -->
-
+[![CRAN
+status](https://www.r-pkg.org/badges/version/econdatasets)](https://cran.r-project.org/package=econdatasets)
+[![CRAN
+downloads](https://cranlogs.r-pkg.org/badges/econdatasets)](https://cran.r-project.org/package=econdatasets)
 ![R CMD
 Check](https://github.com/tidy-intelligence/r-econdatasets/actions/workflows/R-CMD-check.yaml/badge.svg)
 ![Lint](https://github.com/tidy-intelligence/r-econdatasets/actions/workflows/lint.yaml/badge.svg)
@@ -23,7 +24,8 @@ packages and publicly hosted on ‘Hugging Face’. Learn more about the
 
 ## Installation
 
-You can install `econdatasets` from CRAN via:
+You can install `econdatasets` from
+[CRAN](https://cran.r-project.org/package=econdatasets) via:
 
 ``` r
 install.packages("econdatasets")
@@ -90,8 +92,8 @@ ed_get_datasets()
 #>   https://huggingface.co/api/datasets?author=econdataverse
 #> ✔ Found 2 datasets.
 #>                dataset total_downloads            last_modified is_private
-#> 1  econdataverse/wbids              24 2025-10-28T14:57:47.000Z      FALSE
-#> 2 econdataverse/imfweo               4 2025-11-10T06:05:06.000Z      FALSE
+#> 1  econdataverse/wbids              48 2025-10-28T14:57:47.000Z      FALSE
+#> 2 econdataverse/imfweo              21 2025-11-10T06:05:06.000Z      FALSE
 #>   is_gated
 #> 1    FALSE
 #> 2    FALSE
