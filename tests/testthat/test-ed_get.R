@@ -445,3 +445,153 @@ test_that("ed_get_tables handles case-insensitive parquet extension", {
   expect_equal(nrow(result), 2)
   expect_equal(result$table, c("data", "file"))
 })
+
+test_that("ed_get_tables displays error details when JSON parsing fails", {
+  local_mocked_bindings(
+    req_perform = function(...) {
+      structure(list(), class = "httr2_response")
+    },
+    .package = "httr2"
+  )
+
+  local_mocked_bindings(
+    resp_body_string = function(...) {
+      "invalid json"
+    },
+    .package = "httr2"
+  )
+
+  # Capture all CLI output
+  messages <- capture.output(
+    result <- ed_get_tables("test-dataset", quiet = FALSE),
+    type = "message"
+  )
+
+  # Check that both danger and info alerts were shown
+
+  expect_true(any(grepl("Failed to parse API response", messages)))
+  expect_true(any(grepl("Error:", messages)))
+  expect_null(result)
+})
+
+test_that("ed_get_tables handles HTTP request errors gracefully", {
+  local_mocked_bindings(
+    req_perform = function(...) {
+      stop("Connection refused")
+    },
+    .package = "httr2"
+  )
+
+  expect_message(
+    result <- ed_get_tables("test-dataset", quiet = FALSE),
+    "Failed to retrieve file tree"
+  )
+
+  expect_null(result)
+})
+
+test_that("ed_get_datasets handles HTTP request errors gracefully", {
+  local_mocked_bindings(
+    req_perform = function(...) {
+      stop("Connection refused")
+    },
+    .package = "httr2"
+  )
+
+  expect_message(
+    result <- ed_get_datasets(quiet = FALSE),
+    "Failed to retrieve dataset list"
+  )
+
+  expect_null(result)
+})
+
+test_that("ed_get_datasets displays error details when HTTP request fails", {
+  local_mocked_bindings(
+    req_perform = function(...) {
+      stop("timeout after 10 seconds")
+    },
+    .package = "httr2"
+  )
+
+  messages <- capture.output(
+    result <- ed_get_datasets(quiet = FALSE),
+    type = "message"
+  )
+
+  expect_true(any(grepl("Failed to retrieve dataset list", messages)))
+  expect_true(any(grepl("Error:.*timeout", messages)))
+  expect_null(result)
+})
+
+test_that("ed_get_datasets handles response body read errors gracefully", {
+  local_mocked_bindings(
+    req_perform = function(...) {
+      structure(list(), class = "httr2_response")
+    },
+    .package = "httr2"
+  )
+
+  local_mocked_bindings(
+    resp_body_string = function(...) {
+      stop("Failed to decode response body")
+    },
+    .package = "httr2"
+  )
+
+  expect_message(
+    result <- ed_get_datasets(quiet = FALSE),
+    "Failed to read response body"
+  )
+
+  expect_null(result)
+})
+
+test_that("ed_get_datasets displays error details when body read fails", {
+  local_mocked_bindings(
+    req_perform = function(...) {
+      structure(list(), class = "httr2_response")
+    },
+    .package = "httr2"
+  )
+
+  local_mocked_bindings(
+    resp_body_string = function(...) {
+      stop("encoding error in response")
+    },
+    .package = "httr2"
+  )
+
+  messages <- capture.output(
+    result <- ed_get_datasets(quiet = FALSE),
+    type = "message"
+  )
+
+  expect_true(any(grepl("Failed to read response body", messages)))
+  expect_true(any(grepl("Error:.*encoding", messages)))
+  expect_null(result)
+})
+
+test_that("ed_get_datasets displays error details when JSON parsing fails", {
+  local_mocked_bindings(
+    req_perform = function(...) {
+      structure(list(), class = "httr2_response")
+    },
+    .package = "httr2"
+  )
+
+  local_mocked_bindings(
+    resp_body_string = function(...) {
+      "invalid json: missing quotes"
+    },
+    .package = "httr2"
+  )
+
+  messages <- capture.output(
+    result <- ed_get_datasets(quiet = FALSE),
+    type = "message"
+  )
+
+  expect_true(any(grepl("Failed to parse JSON response", messages)))
+  expect_true(any(grepl("Error:", messages)))
+})
