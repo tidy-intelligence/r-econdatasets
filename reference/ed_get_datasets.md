@@ -52,8 +52,8 @@ ed_get_datasets()
 #>   https://huggingface.co/api/datasets?author=econdataverse
 #> ✔ Found 2 datasets.
 #>                dataset total_downloads            last_modified is_private
-#> 1  econdataverse/wbids              48 2025-10-28T14:57:47.000Z      FALSE
-#> 2 econdataverse/imfweo              21 2025-11-10T06:05:06.000Z      FALSE
+#> 1  econdataverse/wbids             112 2025-10-28T14:57:47.000Z      FALSE
+#> 2 econdataverse/imfweo              27 2025-11-10T06:05:06.000Z      FALSE
 #>   is_gated
 #> 1    FALSE
 #> 2    FALSE
