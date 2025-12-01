@@ -50,12 +50,14 @@ Returns `NULL` if the request fails.
 ed_get_datasets()
 #> → Fetching dataset list from
 #>   https://huggingface.co/api/datasets?author=econdataverse
-#> ✔ Found 2 datasets.
+#> ✔ Found 3 datasets.
 #>                dataset total_downloads            last_modified is_private
-#> 1  econdataverse/wbids             112 2025-10-28T14:57:47.000Z      FALSE
-#> 2 econdataverse/imfweo              27 2025-11-10T06:05:06.000Z      FALSE
+#> 1  econdataverse/wbids             116 2025-10-28T14:57:47.000Z      FALSE
+#> 2 econdataverse/imfweo              33 2025-11-10T06:05:06.000Z      FALSE
+#> 3  econdataverse/wbwdi               2 2025-12-01T09:06:11.000Z      FALSE
 #>   is_gated
 #> 1    FALSE
 #> 2    FALSE
+#> 3    FALSE
 # }
 ```
