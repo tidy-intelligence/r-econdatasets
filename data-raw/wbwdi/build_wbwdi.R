@@ -85,7 +85,7 @@ series <- indicators |>
 
 write_parquet(series, "data/wbwdi/series.parquet")
 
-# Create table with annual indicators
+# Create table with annual & quertly indicators
 files_annual <- list.files(
   "data-raw/wbwdi/series",
   pattern = ".parquet",
@@ -109,3 +109,4 @@ indicators_annual |>
   write_parquet("data/wbwdi/indicators_annual.parquet")
 
 # Download monthly data --------------------------------------------------
+# TODO: update the above logic to also try fetching monthly data
